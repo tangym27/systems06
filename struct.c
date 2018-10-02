@@ -17,13 +17,11 @@ struct mta randomize(){
   srand(time(NULL));
   struct mta new;
   new.train = "p";
+  new.train= "l";
   new.delay = (rand()/10000000);
   values(new);
   return new;
 }
-
-
-
 
 int modify(struct mta x, char* ntrain, int ndelay){
   x.train = ntrain;
@@ -32,7 +30,6 @@ int modify(struct mta x, char* ntrain, int ndelay){
   return 0;
 }
   
-
 int main(){
   a.train = "n";
   a.delay = 15;
