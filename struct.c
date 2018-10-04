@@ -35,16 +35,15 @@ struct mta randomize(){
 }
 
 //Write a function that modifies values of your struct's type.
-void modify(struct mta x, char* ntrain, int ndelay){
+void modify(struct mta *x, char* ntrain, int ndelay){
   // sets x.train to have value of ntrain
-  x.train[0] = ntrain[0];
+  x->train[0] = ntrain[0];
   // ADDS A TERMINATING NULL SO IT CAN BE CONCATENATED! 
-  x.train[1] = 0;
-  strcat(x.train,s);
+  x->train[1] = 0;
+  strcat(x->train,s);
   // changes delay
-  x.delay = ndelay;
+  x->delay = ndelay;
   // prints out the variables of our struct
-  values(x);
 }
  
 //Write a main function that tests all these things.
@@ -65,9 +64,11 @@ int main(){
   printf("Currently this is your train: \n");
   a = randomize();
   printf("Change the train to the 1 train and the number of delays to 15:\n");
-  modify(a, "1", 15);
+  modify(&a, "1", 15);
+  values(a);
   printf("Change the train to the L train and the number of delays to 30:\n");
-  modify(a, "L", 30);
+  modify(&a, "L", 30);
+  values(a);
 
   return 0;
 }
